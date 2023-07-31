@@ -37,17 +37,19 @@ def download_qr_code():
     download_label.pack(pady=10)
 
 def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):
+    if hasattr(sys, "_MEIPASS"):
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
 
 # Add font
-font_path = resource_path('src/Nunito.ttf')
+font_path = resource_path("src/Nunito.ttf")
 pyglet.font.add_file(font_path)
 
 # Create the main application window
 root = tk.Tk()
 root.title("QRGenerator")
+icon_path = resource_path("src/icon.ico")
+root.iconbitmap(icon_path)
 root.geometry("500x500")
 root.configure(bg="#344955")
 
